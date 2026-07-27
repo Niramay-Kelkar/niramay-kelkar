@@ -19,6 +19,6 @@ services:
       - key: GITHUB_TOKEN
         sync: false
       - key: ALLOWED_ORIGINS
-        value: http://localhost:3000
+        value: http://localhost:3000,https://niramay-kelkar.vercel.app
       - key: DATABASE_URL
         sync: false
