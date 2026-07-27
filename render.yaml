@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: niramay-kelkar-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CONTACT_TO_EMAIL
+        sync: false
+      - key: CONTACT_FROM_EMAIL
+        value: onboarding@resend.dev
+      - key: GITHUB_USERNAME
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: http://localhost:3000
+      - key: DATABASE_URL
+        sync: false
