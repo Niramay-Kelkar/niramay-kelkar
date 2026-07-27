@@ -1,0 +1,12 @@
+# Working docs for Claude Code sessions — kept local, not published.
+# (Anchored to root only — frontend/CLAUDE.md is a separate, framework-specific file.)
+/CLAUDE.md
+/PROJECT_STATUS.md
+
+# macOS
+.DS_Store
+
+# safety net — real env files should never be committed from any level
+.env
+.env.local
+.env.*.local
