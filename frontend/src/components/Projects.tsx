@@ -32,12 +32,7 @@ export default async function Projects() {
     <Container as="section" id="projects" className="border-t border-border">
       <h2 className="font-display text-2xl tracking-tight">Projects</h2>
 
-      <a
-        href={FEATURED_PROJECT.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-8 block rounded-2xl border border-border p-6 transition-colors hover:border-accent"
-      >
+      <div className="mt-8 rounded-2xl border border-border p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="font-medium">
             {FEATURED_PROJECT.name} · {FEATURED_PROJECT.tagline}
@@ -51,7 +46,25 @@ export default async function Projects() {
             <li key={i}>{bullet}</li>
           ))}
         </ul>
-      </a>
+        <div className="mt-4 flex flex-wrap gap-4 text-sm">
+          <a
+            href={FEATURED_PROJECT.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-accent hover:underline"
+          >
+            GitHub ↗
+          </a>
+          <a
+            href={FEATURED_PROJECT.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-accent hover:underline"
+          >
+            Live Demo ↗
+          </a>
+        </div>
+      </div>
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {projects.map((project) => (

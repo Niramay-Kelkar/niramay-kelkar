@@ -81,8 +81,9 @@ export const SKILLS: Record<string, string[]> = {
 export const FEATURED_PROJECT = {
   name: "HuntLoop",
   tagline: "Job Aggregation & Resume-Matching Platform",
-  dates: "Oct 2025 – Present",
+  dates: "Jun 2026 – Present",
   url: "https://github.com/Niramay-Kelkar/HuntLoop",
+  demoUrl: "https://huntloop-demo.vercel.app/dashboard",
   bullets: [
     "Aggregates 130K+ job postings from 743 companies across 7 ATS platforms, fuzzy-matched against 1.4M DOL LCA records.",
     "Ranks postings by resume fit using Sentence-BERT embeddings via pgvector at 100% coverage, tuned against an 11-job validation harness for match quality.",
