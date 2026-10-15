@@ -14,13 +14,14 @@ export const EXPERIENCE: ExperienceEntry[] = [
     role: "Software Engineer",
     company: "Atos (client: Thomas Built Buses)",
     location: "High Point, NC",
-    dates: "Aug 2022 – Present",
+    dates: "Aug 2022 – Aug 2026",
     bullets: [
-      "Built reliability into 5 production .NET Core/C# microservices with async job queuing, structured retry logic, and input validation, eliminating weekly unplanned outages.",
+      "Built reliability into 5 .NET Core/C# microservices with async job queuing, structured retry logic, and input validation, eliminating weekly production outages.",
       "Built a Prometheus + Splunk observability stack from scratch with SLI/SLO baselines and alert thresholds, cutting incident detection time by 40% and post-mortem investigation from hours to under 2.",
       "Eliminated recurring on-call escalations across three high-traffic APIs by analyzing Oracle DB execution plans and adding missing composite indexes.",
       "Built an autonomous remediation agent for two manufacturing checkpoints, polling every 15 minutes against SAP records and triggering corrective RFC calls automatically.",
-      "Cut documentation effort from several weeks to under one week by integrating Claude Code into daily workflows for specs, root-cause analysis, and boilerplate across 80 applications.",
+      "Cut documentation effort from several weeks to under one week by integrating Claude Code into daily workflows for specs and boilerplate across 80 applications, later extending adoption to root-cause analysis and feature development.",
+      "Led requirements-gathering, scoping, and sign-off directly with client business users across 3 internal teams, owning solution design end to end.",
     ],
   },
   {
