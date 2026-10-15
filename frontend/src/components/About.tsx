@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 
 export default function About() {
   return (
-    <Container as="section" id="about">
+    <Container as="section" id="about" className="border-t border-border">
       <h2 className="font-display text-2xl tracking-tight">About</h2>
       <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
         {SUMMARY}
