@@ -1,6 +1,7 @@
 import { API_BASE_URL, type GithubProject, type GithubProjectsResponse } from "@/lib/api";
 import { FEATURED_PROJECT } from "@/lib/content";
 import Container from "@/components/Container";
+import Reveal from "@/components/Reveal";
 
 async function getGithubProjects(): Promise<{
   projects: GithubProject[];
@@ -30,9 +31,11 @@ export default async function Projects() {
 
   return (
     <Container as="section" id="projects" className="border-t border-border">
-      <h2 className="font-display text-2xl tracking-tight">Projects</h2>
+      <Reveal>
+        <h2 className="font-display text-2xl tracking-tight">Projects</h2>
+      </Reveal>
 
-      <div className="mt-8 rounded-2xl border border-border p-6">
+      <Reveal className="mt-8 rounded-2xl border border-border p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="font-medium">
             {FEATURED_PROJECT.name} · {FEATURED_PROJECT.tagline}
@@ -51,7 +54,7 @@ export default async function Projects() {
             href={FEATURED_PROJECT.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-accent hover:underline"
+            className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
           >
             GitHub ↗
           </a>
@@ -59,21 +62,23 @@ export default async function Projects() {
             href={FEATURED_PROJECT.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-accent hover:underline"
+            className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
           >
             Live Demo ↗
           </a>
         </div>
-      </div>
+      </Reveal>
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {projects.map((project) => (
-          <a
+        {projects.map((project, i) => (
+          <Reveal
             key={project.name}
+            as="a"
+            delay={Math.min(i * 0.05, 0.2)}
             href={project.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-border p-5 transition-colors hover:border-accent"
+            className="rounded-2xl border border-border p-5 transition-all hover:-translate-y-0.5 hover:border-accent"
           >
             <div className="flex items-baseline justify-between gap-2">
               <h3 className="font-medium">{project.name}</h3>
@@ -93,7 +98,7 @@ export default async function Projects() {
                 {project.language}
               </p>
             )}
-          </a>
+          </Reveal>
         ))}
       </div>
 
