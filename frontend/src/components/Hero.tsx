@@ -1,19 +1,21 @@
 import Image from "next/image";
+import Container from "@/components/Container";
 
 export default function Hero() {
   return (
-    <section
+    <Container
+      as="section"
       id="top"
-      className="mx-auto flex max-w-3xl flex-col-reverse items-center gap-10 px-6 pt-20 pb-16 sm:flex-row sm:items-center"
+      className="flex flex-col-reverse items-center gap-10 pt-20 sm:flex-row sm:items-center"
     >
       <div className="flex-1">
-        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-500">
+        <p className="text-sm font-medium text-muted-foreground">
           San Jose, CA
         </p>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 className="mt-2 font-display text-4xl tracking-tight sm:text-5xl">
           Niramay Kelkar
         </h1>
-        <p className="mt-4 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-4 max-w-xl text-lg leading-8 text-muted-foreground">
           Backend &amp; full-stack software engineer. I build reliable APIs,
           microservices, and data backends — and increasingly, the frontends
           and tooling around them.
@@ -21,13 +23,13 @@ export default function Hero() {
         <div className="mt-8 flex flex-wrap gap-4 text-sm font-medium">
           <a
             href="#projects"
-            className="rounded-full bg-foreground px-5 py-3 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+            className="rounded-full bg-accent px-5 py-3 text-accent-foreground transition-opacity hover:opacity-90"
           >
             View projects
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-black/10 px-5 py-3 transition-colors hover:bg-black/[.04] dark:border-white/15 dark:hover:bg-white/[.06]"
+            className="rounded-full border border-border px-5 py-3 transition-colors hover:bg-foreground/[.04]"
           >
             Get in touch
           </a>
@@ -41,6 +43,6 @@ export default function Hero() {
         priority
         className="h-40 w-40 shrink-0 rounded-full object-cover"
       />
-    </section>
+    </Container>
   );
 }

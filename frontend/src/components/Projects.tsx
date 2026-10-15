@@ -1,5 +1,6 @@
 import { API_BASE_URL, type GithubProject, type GithubProjectsResponse } from "@/lib/api";
 import { FEATURED_PROJECT } from "@/lib/content";
+import Container from "@/components/Container";
 
 async function getGithubProjects(): Promise<{
   projects: GithubProject[];
@@ -28,27 +29,24 @@ export default async function Projects() {
   const { projects, error } = await getGithubProjects();
 
   return (
-    <section
-      id="projects"
-      className="mx-auto max-w-3xl border-t border-black/10 px-6 py-16 dark:border-white/10"
-    >
-      <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
+    <Container as="section" id="projects" className="border-t border-border">
+      <h2 className="font-display text-2xl tracking-tight">Projects</h2>
 
       <a
         href={FEATURED_PROJECT.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8 block rounded-2xl border border-black/10 p-6 transition-colors hover:border-black/20 dark:border-white/10 dark:hover:border-white/20"
+        className="mt-8 block rounded-2xl border border-border p-6 transition-colors hover:border-accent"
       >
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="font-medium">
             {FEATURED_PROJECT.name} · {FEATURED_PROJECT.tagline}
           </h3>
-          <p className="text-sm text-zinc-500 dark:text-zinc-500">
+          <p className="text-sm text-muted-foreground">
             {FEATURED_PROJECT.dates}
           </p>
         </div>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">
           {FEATURED_PROJECT.bullets.map((bullet, i) => (
             <li key={i}>{bullet}</li>
           ))}
@@ -62,23 +60,23 @@ export default async function Projects() {
             href={project.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-black/10 p-5 transition-colors hover:border-black/20 dark:border-white/10 dark:hover:border-white/20"
+            className="rounded-2xl border border-border p-5 transition-colors hover:border-accent"
           >
             <div className="flex items-baseline justify-between gap-2">
               <h3 className="font-medium">{project.name}</h3>
               {project.stargazers_count > 0 && (
-                <span className="text-xs text-zinc-500 dark:text-zinc-500">
+                <span className="text-xs text-muted-foreground">
                   ★ {project.stargazers_count}
                 </span>
               )}
             </div>
             {project.description && (
-              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
                 {project.description}
               </p>
             )}
             {project.language && (
-              <p className="mt-3 text-xs text-zinc-500 dark:text-zinc-500">
+              <p className="mt-3 text-xs text-muted-foreground">
                 {project.language}
               </p>
             )}
@@ -87,15 +85,13 @@ export default async function Projects() {
       </div>
 
       {error && (
-        <p className="mt-6 text-sm text-zinc-500 dark:text-zinc-500">
-          {error}
-        </p>
+        <p className="mt-6 text-sm text-muted-foreground">{error}</p>
       )}
       {!error && projects.length === 0 && (
-        <p className="mt-6 text-sm text-zinc-500 dark:text-zinc-500">
+        <p className="mt-6 text-sm text-muted-foreground">
           No other public repos to show yet.
         </p>
       )}
-    </section>
+    </Container>
   );
 }

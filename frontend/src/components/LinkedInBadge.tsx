@@ -4,7 +4,7 @@ export default function LinkedInBadge() {
       href="https://linkedin.com/in/niramay-kelkar"
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/15 dark:hover:bg-white/[.06]"
+      className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-accent"
     >
       <svg
         aria-hidden="true"

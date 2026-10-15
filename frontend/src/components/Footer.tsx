@@ -6,8 +6,8 @@ const LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-black/10 py-8 dark:border-white/10">
-      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 px-6 text-sm text-zinc-600 dark:text-zinc-400">
+    <footer className="border-t border-border py-8">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 px-6 text-sm text-muted-foreground">
         <p>© {new Date().getFullYear()} Niramay Kelkar</p>
         <nav className="flex gap-6">
           {LINKS.map((link) => (
