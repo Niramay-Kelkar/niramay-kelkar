@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://niramay-kelkar.vercel.app";
-const SITE_TITLE = "Niramay Kelkar — Software Engineer";
+const SITE_TITLE = "Niramay Kelkar — Backend & Full-Stack Software Engineer";
 const SITE_DESCRIPTION =
   "Backend and full-stack software engineer building reliable APIs, microservices, and data backends.";
 

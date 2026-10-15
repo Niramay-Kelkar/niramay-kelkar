@@ -40,10 +40,12 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
           justifyContent: "center",
-          padding: "96px",
+          padding: "0 120px",
           background: "#0B0B0C",
           fontFamily: "Inter",
+          textAlign: "center",
         }}
       >
         <p
