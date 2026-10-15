@@ -79,13 +79,14 @@ export const SKILLS: Record<string, string[]> = {
 };
 
 export const FEATURED_PROJECT = {
-  name: "JobIntel",
-  tagline: "Job Aggregation & NLP Matching Platform",
-  dates: "Jun 2026 – Present",
-  url: "https://github.com/Niramay-Kelkar",
+  name: "HuntLoop",
+  tagline: "Job Aggregation & Resume-Matching Platform",
+  dates: "Oct 2025 – Present",
+  url: "https://github.com/Niramay-Kelkar/HuntLoop",
   bullets: [
-    "Open-source scraping and ETL pipeline (Scrapy + FastAPI) targeting Greenhouse and Lever ATS platforms, with deduplication and bulk UPSERT into a normalized PostgreSQL schema tuned for write-heavy ingestion.",
-    "Sentence-BERT semantic matching to rank jobs by resume fit using embedding similarity rather than keyword overlap, benchmarked across multiple model strategies.",
-    "Built end-to-end with Claude Code for LLM-assisted development, code review, and debugging.",
+    "Aggregates 130K+ job postings from 743 companies across 7 ATS platforms, fuzzy-matched against 1.4M DOL LCA records.",
+    "Ranks postings by resume fit using Sentence-BERT embeddings via pgvector at 100% coverage, tuned against an 11-job validation harness for match quality.",
+    "Live company-research feature built on the Tavily search API, surfacing summaries, news, funding, and hiring signals for all 389 tracked companies via a credit-conscious single-call extraction pattern and a calendar-month-aware budget ledger.",
+    "Anonymous feedback and triage pipeline: a capture endpoint returning 202 with async LLM triage through a Groq/Gemini router, per-IP rate limiting, a public status page showing only reviewed items, and a live Grafana panel tracking feedback volume by category.",
   ],
 };
