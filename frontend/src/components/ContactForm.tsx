@@ -51,7 +51,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <p className="mt-8 text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="mt-8 text-sm text-muted-foreground">
         Thanks for reaching out — I&apos;ll get back to you soon.
       </p>
     );
@@ -82,7 +82,7 @@ export default function ContactForm() {
           type="text"
           required
           maxLength={120}
-          className="mt-1 w-full rounded-lg border border-black/10 bg-transparent px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/15 dark:focus:border-white/30"
+          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
         />
       </div>
 
@@ -95,7 +95,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="mt-1 w-full rounded-lg border border-black/10 bg-transparent px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/15 dark:focus:border-white/30"
+          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
         />
       </div>
 
@@ -109,7 +109,7 @@ export default function ContactForm() {
           required
           maxLength={5000}
           rows={5}
-          className="mt-1 w-full rounded-lg border border-black/10 bg-transparent px-3 py-2 text-sm outline-none focus:border-black/30 dark:border-white/15 dark:focus:border-white/30"
+          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
         />
       </div>
 
@@ -120,7 +120,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "pending"}
-        className="rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-[#383838] disabled:opacity-50 dark:hover:bg-[#ccc]"
+        className="rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
       >
         {status === "pending" ? "Sending…" : "Send message"}
       </button>
