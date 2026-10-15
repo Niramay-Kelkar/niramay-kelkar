@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { API_BASE_URL, type ContactResponse } from "@/lib/api";
 
 type Status = "idle" | "pending" | "success" | "error";
@@ -8,6 +9,7 @@ type Status = "idle" | "pending" | "success" | "error";
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const shouldReduceMotion = useReducedMotion();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -51,9 +53,13 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <p className="mt-8 text-sm text-muted-foreground">
+      <motion.p
+        initial={shouldReduceMotion ? undefined : { opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mt-8 text-sm text-muted-foreground"
+      >
         Thanks for reaching out — I&apos;ll get back to you soon.
-      </p>
+      </motion.p>
     );
   }
 
@@ -82,7 +88,7 @@ export default function ContactForm() {
           type="text"
           required
           maxLength={120}
-          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
+          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none transition-colors focus:border-accent"
         />
       </div>
 
@@ -95,7 +101,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
+          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none transition-colors focus:border-accent"
         />
       </div>
 
@@ -109,7 +115,7 @@ export default function ContactForm() {
           required
           maxLength={5000}
           rows={5}
-          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
+          className="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm outline-none transition-colors focus:border-accent"
         />
       </div>
 
@@ -117,13 +123,15 @@ export default function ContactForm() {
         <p className="text-sm text-red-600 dark:text-red-400">{errorMessage}</p>
       )}
 
-      <button
+      <motion.button
         type="submit"
         disabled={status === "pending"}
+        whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
+        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
         className="rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
       >
         {status === "pending" ? "Sending…" : "Send message"}
-      </button>
+      </motion.button>
     </form>
   );
 }

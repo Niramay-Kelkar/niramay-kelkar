@@ -17,7 +17,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label="Toggle color theme"
-      className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+      className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-all hover:scale-105 hover:text-foreground active:scale-95"
     >
       <span className="dark:hidden">Dark</span>
       <span className="hidden dark:inline">Light</span>
