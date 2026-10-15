@@ -20,10 +20,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://niramay-kelkar.vercel.app";
+const SITE_TITLE = "Niramay Kelkar — Software Engineer";
+const SITE_DESCRIPTION =
+  "Backend and full-stack software engineer building reliable APIs, microservices, and data backends.";
+
 export const metadata: Metadata = {
-  title: "Niramay Kelkar — Software Engineer",
-  description:
-    "Backend and full-stack software engineer building reliable APIs, microservices, and data backends.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    siteName: "Niramay Kelkar",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 // Theme defaults to dark. This inline script runs before paint so a
