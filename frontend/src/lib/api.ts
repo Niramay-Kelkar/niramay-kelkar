@@ -18,6 +18,27 @@ export type GithubProjectsResponse = {
   projects: GithubProject[];
 };
 
+export type ContributionDay = {
+  date: string;
+  count: number;
+  level: number;
+};
+
+export type ContributionWeek = {
+  days: ContributionDay[];
+};
+
+export type GithubStats = {
+  public_repos: number | null;
+  total_stars: number | null;
+  followers: number | null;
+  contribution_weeks: ContributionWeek[] | null;
+};
+
+export type GithubStatsResponse = {
+  stats: GithubStats;
+};
+
 export type ContactRequest = {
   name: string;
   email: string;

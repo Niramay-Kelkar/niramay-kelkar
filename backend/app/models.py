@@ -30,3 +30,28 @@ class GithubProject(BaseModel):
 
 class GithubProjectsResponse(BaseModel):
     projects: list[GithubProject]
+
+
+class ContributionDay(BaseModel):
+    date: str
+    count: int
+    # 0-4 relative intensity bucket (computed server-side from the day's
+    # count vs. the max count in the window), mirroring GitHub's own heatmap.
+    level: int
+
+
+class ContributionWeek(BaseModel):
+    days: list[ContributionDay]
+
+
+class GithubStats(BaseModel):
+    # Each field is independently optional so the frontend can render
+    # whatever came back and skip the rest, rather than failing all-or-nothing.
+    public_repos: int | None = None
+    total_stars: int | None = None
+    followers: int | None = None
+    contribution_weeks: list[ContributionWeek] | None = None
+
+
+class GithubStatsResponse(BaseModel):
+    stats: GithubStats
