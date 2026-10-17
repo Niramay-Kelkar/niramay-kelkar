@@ -36,60 +36,128 @@ export default async function Image() {
     (
       <div
         style={{
+          position: "relative",
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "0 120px",
           background: "#0B0B0C",
           fontFamily: "Inter",
-          textAlign: "center",
         }}
       >
-        <p
-          style={{
-            fontSize: 28,
-            fontWeight: 500,
-            color: "#A6A29B",
-            margin: 0,
-          }}
-        >
-          San Jose, CA
-        </p>
-        <h1
-          style={{
-            fontFamily: "Fraunces",
-            fontSize: 104,
-            fontWeight: 600,
-            color: "#E8C14A",
-            margin: "20px 0 0",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Niramay Kelkar
-        </h1>
+        {/* Oversized monogram watermark, sitting behind the content */}
         <div
           style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             display: "flex",
-            width: 120,
-            height: 4,
-            borderRadius: 2,
-            background: "#E8C14A",
-            margin: "32px 0 0",
-          }}
-        />
-        <p
-          style={{
-            fontSize: 36,
-            fontWeight: 400,
-            color: "#F2EFE9",
-            margin: "28px 0 0",
+            fontFamily: "Fraunces",
+            fontSize: 620,
+            fontWeight: 600,
+            color: "#E8C14A",
+            opacity: 0.06,
+            lineHeight: 1,
           }}
         >
-          Backend &amp; full-stack software engineer
-        </p>
+          N
+        </div>
+
+        {/* Inset hairline frame */}
+        <div
+          style={{
+            position: "absolute",
+            top: 48,
+            left: 48,
+            right: 48,
+            bottom: 48,
+            display: "flex",
+            border: "1px solid rgba(232, 193, 74, 0.35)",
+            borderRadius: 16,
+          }}
+        />
+
+        {/* Main content */}
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 120px",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              fontSize: 28,
+              fontWeight: 500,
+              color: "#A6A29B",
+              margin: 0,
+            }}
+          >
+            San Jose, CA
+          </p>
+          <h1
+            style={{
+              fontFamily: "Fraunces",
+              fontSize: 104,
+              fontWeight: 600,
+              color: "#E8C14A",
+              margin: "20px 0 0",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Niramay Kelkar
+          </h1>
+          <div
+            style={{
+              display: "flex",
+              width: 120,
+              height: 4,
+              borderRadius: 2,
+              background: "#E8C14A",
+              margin: "32px 0 0",
+            }}
+          />
+          <p
+            style={{
+              fontSize: 36,
+              fontWeight: 400,
+              color: "#F2EFE9",
+              margin: "28px 0 0",
+            }}
+          >
+            Backend &amp; full-stack software engineer
+          </p>
+        </div>
+
+        {/* Footer URL, fills the empty space at the bottom */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 44,
+            left: 0,
+            right: 0,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <p
+            style={{
+              fontSize: 22,
+              fontWeight: 500,
+              letterSpacing: "0.04em",
+              color: "#6B6657",
+              margin: 0,
+            }}
+          >
+            niramay-kelkar.vercel.app
+          </p>
+        </div>
       </div>
     ),
     {
