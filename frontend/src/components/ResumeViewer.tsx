@@ -73,7 +73,7 @@ export default function ResumeViewer() {
           key={variant}
           src={active.url}
           title={`${active.label} resume preview`}
-          className="h-[85vh] w-full"
+          className="h-[90vh] w-full"
         />
       </div>
 
