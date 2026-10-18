@@ -1,9 +1,13 @@
 import { API_BASE_URL, type GithubProject, type GithubProjectsResponse } from "@/lib/api";
-import { FEATURED_PROJECT } from "@/lib/content";
+import { FEATURED_PROJECTS } from "@/lib/content";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import HoverLift from "@/components/HoverLift";
+
+const FEATURED_NAMES = new Set(
+  FEATURED_PROJECTS.map((p) => p.name.toLowerCase())
+);
 
 async function getGithubProjects(): Promise<{
   projects: GithubProject[];
@@ -19,7 +23,7 @@ async function getGithubProjects(): Promise<{
     const data: GithubProjectsResponse = await res.json();
     return {
       projects: data.projects.filter(
-        (p) => p.name.toLowerCase() !== FEATURED_PROJECT.name.toLowerCase()
+        (p) => !FEATURED_NAMES.has(p.name.toLowerCase())
       ),
       error: null,
     };
@@ -37,41 +41,45 @@ export default async function Projects() {
         Projects
       </TextReveal>
 
-      <Reveal className="mt-8 rounded-2xl border border-border p-6">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="font-medium">
-            {FEATURED_PROJECT.name} · {FEATURED_PROJECT.tagline}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {FEATURED_PROJECT.dates}
-          </p>
-        </div>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">
-          {FEATURED_PROJECT.bullets.map((bullet, i) => (
-            <li key={i}>{bullet}</li>
-          ))}
-        </ul>
-        <div className="mt-4 flex flex-wrap gap-4 text-sm">
-          <HoverLift
-            as="a"
-            href={FEATURED_PROJECT.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
-          >
-            GitHub ↗
-          </HoverLift>
-          <HoverLift
-            as="a"
-            href={FEATURED_PROJECT.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Live Demo ↗
-          </HoverLift>
-        </div>
-      </Reveal>
+      <div className="mt-8 space-y-6">
+        {FEATURED_PROJECTS.map((project) => (
+          <Reveal key={project.name} className="rounded-2xl border border-border p-6">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="font-medium">
+                {project.name} · {project.tagline}
+              </h3>
+              <p className="text-sm text-muted-foreground">{project.dates}</p>
+            </div>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">
+              {project.bullets.map((bullet, i) => (
+                <li key={i}>{bullet}</li>
+              ))}
+            </ul>
+            <div className="mt-4 flex flex-wrap gap-4 text-sm">
+              <HoverLift
+                as="a"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              >
+                GitHub ↗
+              </HoverLift>
+              {project.demoUrl && (
+                <HoverLift
+                  as="a"
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  Live Demo ↗
+                </HoverLift>
+              )}
+            </div>
+          </Reveal>
+        ))}
+      </div>
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {projects.map((project, i) => (
