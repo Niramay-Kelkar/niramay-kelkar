@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import HoverLift from "@/components/HoverLift";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -21,13 +22,14 @@ export default function Header() {
         <div className="flex flex-wrap items-center gap-6">
           <nav className="flex flex-wrap gap-6 text-sm text-muted-foreground">
             {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="relative transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:text-foreground hover:after:w-full"
-              >
-                {link.label}
-              </Link>
+              <HoverLift key={link.href} className="inline-block">
+                <Link
+                  href={link.href}
+                  className="relative transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:text-foreground hover:after:w-full"
+                >
+                  {link.label}
+                </Link>
+              </HoverLift>
             ))}
           </nav>
           <span className="hidden text-xs text-muted-foreground sm:inline">

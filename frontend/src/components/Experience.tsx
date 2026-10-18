@@ -1,13 +1,14 @@
 import { EXPERIENCE } from "@/lib/content";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 
 export default function Experience() {
   return (
     <Container as="section" id="experience" className="border-t border-border">
-      <Reveal>
-        <h2 className="font-display text-2xl tracking-tight">Experience</h2>
-      </Reveal>
+      <TextReveal className="font-display text-2xl tracking-tight">
+        Experience
+      </TextReveal>
       <div className="mt-8 space-y-10">
         {EXPERIENCE.map((entry) => (
           <Reveal key={`${entry.company}-${entry.dates}`}>

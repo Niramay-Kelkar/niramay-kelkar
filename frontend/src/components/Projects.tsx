@@ -2,6 +2,8 @@ import { API_BASE_URL, type GithubProject, type GithubProjectsResponse } from "@
 import { FEATURED_PROJECT } from "@/lib/content";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
+import HoverLift from "@/components/HoverLift";
 
 async function getGithubProjects(): Promise<{
   projects: GithubProject[];
@@ -31,9 +33,9 @@ export default async function Projects() {
 
   return (
     <Container as="section" id="projects" className="border-t border-border">
-      <Reveal>
-        <h2 className="font-display text-2xl tracking-tight">Projects</h2>
-      </Reveal>
+      <TextReveal className="font-display text-2xl tracking-tight">
+        Projects
+      </TextReveal>
 
       <Reveal className="mt-8 rounded-2xl border border-border p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -50,22 +52,24 @@ export default async function Projects() {
           ))}
         </ul>
         <div className="mt-4 flex flex-wrap gap-4 text-sm">
-          <a
+          <HoverLift
+            as="a"
             href={FEATURED_PROJECT.url}
             target="_blank"
             rel="noopener noreferrer"
             className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
           >
             GitHub ↗
-          </a>
-          <a
+          </HoverLift>
+          <HoverLift
+            as="a"
             href={FEATURED_PROJECT.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="relative font-medium text-accent after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
           >
             Live Demo ↗
-          </a>
+          </HoverLift>
         </div>
       </Reveal>
 
