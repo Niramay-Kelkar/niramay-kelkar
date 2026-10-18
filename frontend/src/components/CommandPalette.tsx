@@ -9,22 +9,11 @@ import { useCallback, useEffect, useState } from "react";
 const EMAIL = "niramayrkelkar@gmail.com";
 const GITHUB_URL = "https://github.com/Niramay-Kelkar";
 const LINKEDIN_URL = "https://linkedin.com/in/niramay-kelkar";
-const RESUME_STARTUP_URL = "/Niramay_Kelkar_Resume_AI_v2.pdf";
-const RESUME_FULLSTACK_URL = "/Niramay_Kelkar_Resume_FullStack_v5.pdf";
 
 type CommandItemConfig = {
   label: string;
   onSelect: () => void;
 };
-
-function downloadFile(href: string) {
-  const link = document.createElement("a");
-  link.href = href;
-  link.download = "";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-}
 
 export default function CommandPalette() {
   const router = useRouter();
@@ -117,14 +106,14 @@ export default function CommandPalette() {
           label: "Download resume (startup-focused)",
           onSelect: () => {
             close();
-            downloadFile(RESUME_STARTUP_URL);
+            router.push("/resume?variant=startup");
           },
         },
         {
           label: "Download resume (full-stack)",
           onSelect: () => {
             close();
-            downloadFile(RESUME_FULLSTACK_URL);
+            router.push("/resume?variant=fullstack");
           },
         },
       ],
