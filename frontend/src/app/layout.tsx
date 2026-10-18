@@ -3,6 +3,7 @@ import { Fraunces, Geist_Mono, Inter } from "next/font/google";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CommandPalette from "@/components/CommandPalette";
 import "./globals.css";
 
 const inter = Inter({
@@ -75,6 +76,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <CommandPalette />
       </body>
     </html>
   );

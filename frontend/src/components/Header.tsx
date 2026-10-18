@@ -30,6 +30,11 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+          <span className="hidden text-xs text-muted-foreground sm:inline">
+            <kbd className="rounded border border-border px-1.5 py-0.5 font-mono">
+              ⌘K
+            </kbd>
+          </span>
           <ThemeToggle />
         </div>
       </div>
