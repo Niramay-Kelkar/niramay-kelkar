@@ -1,12 +1,15 @@
 import { EDUCATION, SKILLS, SUMMARY } from "@/lib/content";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 
 export default function About() {
   return (
     <Container as="section" id="about" className="border-t border-border">
-      <Reveal>
-        <h2 className="font-display text-2xl tracking-tight">About</h2>
+      <TextReveal className="font-display text-2xl tracking-tight">
+        About
+      </TextReveal>
+      <Reveal delay={0.08}>
         <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
           {SUMMARY}
         </p>

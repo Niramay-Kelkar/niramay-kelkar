@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 
 export default function Hero() {
   return (
@@ -15,11 +16,14 @@ export default function Hero() {
             San Jose, CA
           </p>
         </Reveal>
-        <Reveal trigger="mount" delay={0.08}>
-          <h1 className="mt-2 font-display text-4xl tracking-tight sm:text-5xl">
-            Niramay Kelkar
-          </h1>
-        </Reveal>
+        <TextReveal
+          as="h1"
+          trigger="mount"
+          delay={0.08}
+          className="mt-2 font-display text-4xl tracking-tight sm:text-5xl"
+        >
+          Niramay Kelkar
+        </TextReveal>
         <Reveal trigger="mount" delay={0.16}>
           <p className="mt-4 max-w-xl text-lg leading-8 text-muted-foreground">
             Backend &amp; full-stack software engineer. I build reliable
