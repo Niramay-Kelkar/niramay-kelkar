@@ -78,16 +78,39 @@ export const SKILLS: Record<string, string[]> = {
   Observability: ["Prometheus", "Grafana", "Splunk", "New Relic", "SLI/SLO"],
 };
 
-export const FEATURED_PROJECT = {
-  name: "HuntLoop",
-  tagline: "Job Aggregation & Resume-Matching Platform",
-  dates: "Jun 2026 – Present",
-  url: "https://github.com/Niramay-Kelkar/HuntLoop",
-  demoUrl: "https://huntloop-demo.vercel.app/dashboard",
-  bullets: [
-    "Aggregates 130K+ job postings from 743 companies across 7 ATS platforms, fuzzy-matched against 1.4M DOL LCA records.",
-    "Ranks postings by resume fit using Sentence-BERT embeddings via pgvector at 100% coverage, tuned against an 11-job validation harness for match quality.",
-    "Live company-research feature built on the Tavily search API, surfacing summaries, news, funding, and hiring signals for all 389 tracked companies via a credit-conscious single-call extraction pattern and a calendar-month-aware budget ledger.",
-    "Anonymous feedback and triage pipeline: a capture endpoint returning 202 with async LLM triage through a Groq/Gemini router, per-IP rate limiting, a public status page showing only reviewed items, and a live Grafana panel tracking feedback volume by category.",
-  ],
+export type FeaturedProject = {
+  name: string;
+  tagline: string;
+  dates: string;
+  url: string;
+  demoUrl?: string;
+  bullets: string[];
 };
+
+export const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    name: "HuntLoop",
+    tagline: "Job Aggregation & Resume-Matching Platform",
+    dates: "Jun 2026 – Present",
+    url: "https://github.com/Niramay-Kelkar/HuntLoop",
+    demoUrl: "https://huntloop-demo.vercel.app/dashboard",
+    bullets: [
+      "Aggregates 130K+ job postings from 743 companies across 7 ATS platforms, fuzzy-matched against 1.4M DOL LCA records.",
+      "Ranks postings by resume fit using Sentence-BERT embeddings via pgvector at 100% coverage, tuned against an 11-job validation harness for match quality.",
+      "Live company-research feature built on the Tavily search API, surfacing summaries, news, funding, and hiring signals for all 389 tracked companies via a credit-conscious single-call extraction pattern and a calendar-month-aware budget ledger.",
+      "Anonymous feedback and triage pipeline: a capture endpoint returning 202 with async LLM triage through a Groq/Gemini router, per-IP rate limiting, a public status page showing only reviewed items, and a live Grafana panel tracking feedback volume by category.",
+    ],
+  },
+  {
+    name: "Hands-Off",
+    tagline: "LLM Agent for Operating Legacy Web Consoles",
+    dates: "Aug 2026",
+    url: "https://github.com/Niramay-Kelkar/hands-off",
+    bullets: [
+      "An LLM-driven discovery agent that explores a live UI once to complete a task, then compiles what it learned into a typed, replayable capability artifact — no model in the loop on replay.",
+      "Replays are deterministic: given a compiled artifact and new inputs, the same flow runs again exactly, with structured handling for runtime outcomes like validation errors and permission denials instead of a crash.",
+      "Safety guardrails gate destructive or ambiguous actions behind a checkpoint, and human-in-the-loop escalation hands control of the live session to an operator when replay hits a condition it can't recover from.",
+      "Proven across tenants: the same compiled capability was replayed unmodified against a second, differently-branded console (a credit-union-style interface with its own layout, markup, and class naming) with identical behavior — verified through a capability API, a chatbot interface, and an operations dashboard built on top of the recorded capabilities.",
+    ],
+  },
+];
