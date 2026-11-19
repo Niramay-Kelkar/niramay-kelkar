@@ -4,7 +4,7 @@
 
 ### Backend & AI Engineer building systems that survive production, not just demos
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Java+%C2%B7+Python+%C2%B7+C%23+%C2%B7+PostgreSQL;Building+AI-powered+backend+systems;Open+to+Backend+%2F+AI+%2F+Forward+Deployed+roles;6+years+shipping+production+APIs&font=Fira%20Code&center=true&width=600&height=45&color=2E8B57&vCenter=true&size=22)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Java+%C2%B7+Python+%C2%B7+C%23+%C2%B7+PostgreSQL;Building+AI-powered+backend+systems;Merged+fix+in+ClickHouse%27s+Postgres+extension;Open+to+Backend+%2F+AI+%2F+Forward+Deployed+roles;6+years+shipping+production+APIs&font=Fira%20Code&center=true&width=700&height=45&color=2E8B57&vCenter=true&size=22)](https://git.io/typing-svg)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/niramay-kelkar/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://niramay-kelkar.vercel.app/)
@@ -16,15 +16,26 @@
 
 ## 🔭 What I'm building
 
-**[HuntLoop](https://github.com/Niramay-Kelkar/HuntLoop)** — an open-source job-search automation platform I designed and shipped solo.
+**[HuntLoop](https://github.com/Niramay-Kelkar/HuntLoop)**: an open-source job-search automation platform I designed and shipped solo.
 
 - Scrapes 130K+ postings nightly from 7 ATS platforms (Greenhouse, Lever, Workday, SmartRecruiters, Ashby, iCIMS, Gem)
 - Matches employers against 1.4M DOL H-1B filings to surface real sponsorship history
-- Hybrid ranking: Sentence-BERT embeddings (pgvector) + a multi-provider LLM router (Groq, Gemini) with automatic failover
+- Hybrid ranking: Sentence-BERT embeddings (pgvector) plus a multi-provider LLM router (Groq, Gemini) with automatic failover
 - 580+ tests, CI/CD, CodeQL, Dependabot, secret scanning, Prometheus/Grafana observability
 - `docker compose up` and it runs
 
 [Live demo](https://huntloop-demo.vercel.app/dashboard) · [Full writeup](https://niramaykelkar.substack.com/)
+
+---
+
+## 🌱 Open source
+
+**[ClickHouse pg_clickhouse](https://github.com/ClickHouse/pg_clickhouse)**: fixed [issue #406](https://github.com/ClickHouse/pg_clickhouse/issues/406), where numeric values pushed down to ClickHouse came back padded with trailing zeros. The root cause sat in the C library, so the fix went there first and then into the Postgres extension.
+
+- [pg-clickhouse-c #47](https://github.com/ClickHouse/pg-clickhouse-c/pull/47) maps an unconstrained numeric to `Decimal(76, 38)`. Merged.
+- [pg_clickhouse #459](https://github.com/ClickHouse/pg_clickhouse/pull/459) adds the `numeric_trim_scale` option and regression tests. Shipped in v0.11.1.
+
+[Read the write-up](https://medium.com/@niramayrkelkar/34-extra-zeros-my-first-open-source-fix-7ba9af746f85)
 
 ---
 
@@ -43,6 +54,16 @@
 
 ---
 
+## 📈 Top languages
+
+<div align="center">
+
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Niramay-Kelkar&layout=compact&theme=tokyonight&hide_border=true" />
+
+</div>
+
+---
+
 ## 📈 GitHub stats
 
 <div align="center">
@@ -58,7 +79,7 @@
 
 ## 🧭 How I work
 
-I like finding the actual problem underneath a messy situation and sticking with it until it's solved, whether that means writing the code myself or working directly with the people affected by it. Four years at Atos taught me to own ambiguity end to end: requirements, build, deploy, support. HuntLoop is the same pattern applied to my own product.
+I like finding the actual problem underneath a messy situation and sticking with it until it's solved, whether that means writing the code myself or working directly with the people affected by it. Four years at Atos taught me to own ambiguity end to end: requirements, build, deploy, support. HuntLoop is the same pattern applied to my own product, and the pg_clickhouse fix is the same habit applied to someone else's.
 
 **Currently looking for:** Backend, Full-Stack, AI, and Forward Deployed Engineering roles. Based in the Bay Area, available immediately.
 
